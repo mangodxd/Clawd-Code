@@ -24,12 +24,12 @@ classifiers = [
 ]
 
 dependencies = [
-    "anthropic>=0.18.0",
-    "openai>=1.0.0",
-    "zhipuai>=2.0.0",
-    "python-dotenv>=1.0.0",
-    "rich>=13.0.0",
-    "prompt-toolkit>=3.0.0",
+    "anthropic",
+    "openai",
+    "zhipuai",
+    "python-dotenv",
+    "rich",
+    "prompt-toolkit",
 ]
 
 [project.optional-dependencies]

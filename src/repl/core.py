@@ -41,8 +41,8 @@ class ClawdREPL:
 
         # Create session
         self.session = Session.create(
-            provider=provider_name,
-            model=self.provider.model
+            provider_name,
+            self.provider.model
         )
 
         # Prompt toolkit
