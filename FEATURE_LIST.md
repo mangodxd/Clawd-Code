@@ -196,18 +196,18 @@
 - [x] 工具 schema、参数校验、异常处理、调用日志
 - [x] 工具执行结果回填闭环
 
-## Phase 3：上下文、权限、恢复能力 (进行中)
+## Phase 3：上下文、权限、恢复能力 ✅
 
 目标：补齐 Claude Code 的工程化能力。
 
-- [ ] 工作区上下文构建完善
-- [ ] git status / 文件树 / 项目说明注入
-- [ ] memory 与历史上下文管理
-- [ ] 权限系统完全集成
-- [ ] `/resume`
-- [ ] `/compact`
-- [ ] `/doctor`
-- [ ] pre/post tool use hooks
+- [x] 工作区上下文构建完善
+- [x] git status / 文件树 / 项目说明注入
+- [x] memory 与历史上下文管理
+- [x] 权限系统完全集成
+- [x] `/resume`
+- [x] `/compact`
+- [x] `/doctor`
+- [x] pre/post tool use hooks
 
 ## Phase 4：MCP、插件、扩展生态
 
