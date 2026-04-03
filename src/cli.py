@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import sys
 from pathlib import Path
+from dotenv import load_dotenv
 
 from rich.console import Console
 from rich.prompt import Prompt
@@ -12,6 +13,8 @@ from rich.prompt import Prompt
 
 def main():
     """CLI main entry point."""
+    # Load environment variables from .env if present
+    load_dotenv()
     # Quick path for --version
     if len(sys.argv) == 2 and sys.argv[1] in ['--version', '-v', '-V']:
         from src import __version__

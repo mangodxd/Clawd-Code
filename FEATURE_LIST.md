@@ -33,12 +33,13 @@
 | 能力 | 状态 | 当前情况 |
 |------|------|----------|
 | CLI 启动入口 | ✅ | 已支持 `clawd`、`login`、`config`、`--version` |
-| 交互式 REPL | ✅ | 支持流式输出、历史记录、Tab 补全、多行输入 |
+| 交互式 REPL | ✅ | 支持流式输出、历史记录、Tab 补全、多行输入、**进度状态显示与 Markdown 渲染** |
 | Slash Commands | ✅ | 已支持 `/help`、`/clear`、`/save`、`/load`、`/multiline`、`/exit` |
 | 多 Provider 抽象 | ✅ | 已支持 Anthropic / OpenAI / GLM |
 | Provider 配置管理 | ✅ | 支持默认 Provider、Base URL、默认模型配置 |
 | 会话持久化 | ✅ | 支持保存/加载本地会话 |
 | 会话消息管理 | ✅ | 支持会话历史维护与序列化 |
+| 交互 UI 体验 | ✅ | **现代化的 Header (路径缩写、模型信息)、狐狸吉祥物 ASCII、`❯` 提示符** |
 | 错误恢复 / 重新登录 | 🟡 | 已有基础认证错误处理与重新配置流程 |
 | Token / Cost 跟踪 | 🚫 | 当前聊天 CLI 尚未形成完整统计视图 |
 | 上下文构建 | 🟡 | 已有 context.py 模块，尚未完成完整注入闭环 |
@@ -84,19 +85,19 @@
 | 交互工具 | SendUserMessageTool | `send_user_message.py` | ✅ 已实现 |
 | 任务管理 | TodoWriteTool | `todo_write.py` | ✅ 已实现 |
 | 任务管理 | TaskStopTool | `task_stop.py` | ✅ 已实现 |
-| 任务管理 | TasksV2Tool | `tasks_v2.py` | ✅ 已实现 |
-| 任务管理 | TaskManager | `task_manager.py` | ✅ 已实现 |
+| 任务管理 | TasksV2Tool | `tasks_v2.py` | 🟡 内存记录 |
+| 任务管理 | TaskManager | `task_manager.py` | 🟡 框架中 |
 | Agent 工具 | AgentTool | `agent.py` | ✅ 已实现 |
 | Agent 工具 | BriefTool | `brief.py` | ✅ 已实现 |
 | Agent 工具 | TeamTool | `team.py` | ✅ 已实现 |
 | 配置工具 | ConfigTool | `config.py` | ✅ 已实现 |
 | 计划模式 | PlanModeTool | `plan_mode.py` | ✅ 已实现 |
-| 定时任务 | CronTool | `cron.py` | ✅ 已实现 |
+| 定时任务 | CronTool | `cron.py` | 🟡 **空壳 (仅内存占位)** |
 | MCP 工具 | MCPTool | `mcp.py` | ✅ 已实现 |
 | MCP 工具 | MCPResourcesTool | `mcp_resources.py` | ✅ 已实现 |
 | 技能系统 | SkillTool | `skill.py` | ✅ 已实现 |
 | 工具搜索 | ToolSearchTool | `tool_search.py` | ✅ 已实现 |
-| LSP 集成 | LSPTool | `lsp.py` | ✅ 已实现 |
+| LSP 集成 | LSPTool | `lsp.py` | 🟡 **空壳 (无 Client)** |
 | Worktree | WorktreeTool | `worktree.py` | ✅ 已实现 |
 | 杂项工具 | SleepTool | `sleep.py` | ✅ 已实现 |
 | 杂项工具 | StructuredOutputTool | `structured_output.py` | ✅ 已实现 |
@@ -219,15 +220,15 @@
 - [x] 本地模型与第三方 provider 扩展
 - [x] 更完善的 observability 与调试工具
 
-## Phase 5：Python 版本的差异化亮点 ✅
+## Phase 5：Python 版本的差异化亮点 🟡
 
 目标：做出属于 Python 重构版的特色。
 
-- [x] Notebook 友好工具链
-- [x] 数据工程 / ETL 场景增强
-- [x] 中国模型生态一等公民支持
-- [x] pytest / ruff / mypy / uv 集成体验
-- [x] 面向企业内自动化与工作流的扩展接口
+- [ ] Notebook 友好工具链 (骨架已在，待实现 NotebookEditTool)
+- [ ] 数据工程 / ETL 场景增强 (规划中)
+- [x] 中国模型生态一等公民支持 (GLM 已深度集成)
+- [ ] pytest / ruff / mypy / uv 集成体验 (可通过 Bash 调用，待深度 Agent 集成)
+- [x] 面向企业内自动化与工作流的扩展接口 (已通过 SkillTool 实现动态加载)
 
 ---
 

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import base64
+import os
 from pathlib import Path
 from typing import Any, Optional
 
@@ -21,19 +22,19 @@ def get_default_config() -> dict[str, Any]:
         "default_provider": "glm",
         "providers": {
             "anthropic": {
-                "api_key": "",
-                "base_url": "https://api.anthropic.com",
-                "default_model": "claude-sonnet-4-20250514"
+                "api_key": os.environ.get("ANTHROPIC_API_KEY", ""),
+                "base_url": os.environ.get("ANTHROPIC_BASE_URL", "https://api.anthropic.com"),
+                "default_model": os.environ.get("ANTHROPIC_DEFAULT_MODEL", "claude-sonnet-4-20250514")
             },
             "openai": {
-                "api_key": "",
-                "base_url": "https://api.openai.com/v1",
-                "default_model": "gpt-4"
+                "api_key": os.environ.get("OPENAI_API_KEY", ""),
+                "base_url": os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1"),
+                "default_model": os.environ.get("OPENAI_DEFAULT_MODEL", "gpt-4")
             },
             "glm": {
-                "api_key": "",
-                "base_url": "https://open.bigmodel.cn/api/paas/v4",
-                "default_model": "glm-4.5"
+                "api_key": os.environ.get("GLM_API_KEY", ""),
+                "base_url": os.environ.get("GLM_BASE_URL", "https://open.bigmodel.cn/api/paas/v4"),
+                "default_model": os.environ.get("GLM_DEFAULT_MODEL", "glm-4.5")
             }
         },
         "session": {
@@ -75,10 +76,16 @@ def load_config() -> dict[str, Any]:
         with open(config_path, 'r', encoding='utf-8') as f:
             config = json.load(f)
 
-        # Decode API keys
+        # Decode API keys and Merge environment variables if keys are missing in file
+        default_config = get_default_config()
         for provider_name, provider_config in config.get("providers", {}).items():
             if provider_config.get("api_key"):
                 provider_config["api_key"] = _decode_api_key(provider_config["api_key"])
+            elif provider_name in default_config["providers"]:
+                # Use env var if available and file has no key
+                env_key = default_config["providers"][provider_name].get("api_key")
+                if env_key:
+                    provider_config["api_key"] = env_key
 
         return config
     except Exception as e:
