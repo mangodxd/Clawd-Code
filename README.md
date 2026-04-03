@@ -18,6 +18,10 @@
 
 **🔥 Active Development • New Features Weekly 🔥**
 
+</div>
+
+***
+
 ## 🎯 What is This?
 
 **Clawd Code** is a **complete Python rewrite** of Claude Code, based on the **real TypeScript source code**.
@@ -66,7 +70,7 @@
 
 ## ✨ Features
 
-### FLEXIBLE SKILL SYSTEMS
+### Flexible Skill Systems
 
 ```md
 ---
@@ -430,9 +434,9 @@ If you find this useful, please **star** ⭐ the repo!
 
 **🔥 活跃开发中 • 每周更新新功能 🔥**
 
-<h2><strong>FLEXIBLE SKILL SYSTEMS</strong></h2>
+## FLEXIBLE SKILL SYSTEMS
 
-<strong>基于 Markdown 的斜杠技能系统，支持参数替换、工具限制，以及项目级 / 用户级技能加载。</strong>
+**基于 Markdown 的斜杠技能系统，支持参数替换、工具限制，以及项目级 / 用户级技能加载。**
 
 </div>
 
@@ -486,7 +490,7 @@ If you find this useful, please **star** ⭐ the repo!
 
 ## ✨ 特性
 
-### FLEXIBLE SKILL SYSTEMS
+### Flexible Skill Systems
 
 ```md
 ---
